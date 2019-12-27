@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 
+import argparse
 from itertools import izip, chain, repeat, count
-from sys import argv, stdout, exit
+from sys import stdout
 write = stdout.write
 
-if len(argv) != 3:
-    write('Usage: %s <original> <new>' % argv[0])
-    exit(1)
+ap = argparse.ArgumentParser()
+ap.add_argument('file1', metavar='FILE1', type=file)
+ap.add_argument('file2', metavar='FILE2', type=file)
+options = ap.parse_args()
 
-f1, f2 = map(file, argv[1:3])
+f1 = options.file1
+f2 = options.file2
 
 for i, l1, l2 in izip(count(1), chain(f1, repeat(None)), chain(f2, repeat(None))):
     if l1 is None:
