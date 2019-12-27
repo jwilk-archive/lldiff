@@ -18,14 +18,14 @@ for i, l1, l2 in izip(count(1), chain(f1, repeat(None)), chain(f2, repeat(None))
         if l2 is None:
             break
         else:
-            print('%da%d' % (i, i))
+            print('{0}a{0}'.format(i))
     elif l2 is None:
-        print('%dd%d' % (i, i))
+        print('{0}d{0}'.format(i))
     else:
         if l1 == l2:
             continue
-        print('%dc%d' % (i, i))
-    l1 is None or print('< %s' % l1, end='')
-    l2 is None or print('> %s' % l2, end='')
+        print('{0}c{0}'.format(i))
+    l1 is None or print('< {l}'.format(l=l1), end='')
+    l2 is None or print('> {l}'.format(l=l2), end='')
 
 # vim:ts=4 sts=4 sw=4 et
