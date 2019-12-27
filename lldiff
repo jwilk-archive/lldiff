@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 from itertools import izip, chain, repeat, count
 from sys import argv, stdout, exit
 write = stdout.write
